@@ -44,6 +44,12 @@ Ensure you have >=go1.14.5
     go run src/sqlitego
     ```
 
+5. Check out available commands and go ham
+    ```sqlitego
+    sqlitego> help
+    ```
+
+
 <!-- USAGE EXAMPLES -->
 ## Usage
 
