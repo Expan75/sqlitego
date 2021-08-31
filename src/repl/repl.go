@@ -1,8 +1,8 @@
 package repl
 
 import (
-    "engine"
 	"bufio"
+	"engine"
 	"fmt"
 	"os"
 	"os/exec"
