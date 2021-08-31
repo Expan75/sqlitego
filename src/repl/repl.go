@@ -1,6 +1,7 @@
 package repl
 
 import (
+    "engine"
 	"bufio"
 	"fmt"
 	"os"
@@ -38,8 +39,20 @@ func handleInvalidCmd(text string) {
     defer printUnknown(text)
 }
 
-func handleCmd(text string) {
-    handleInvalidCmd(text)
+
+
+func handleCmd(command string) {
+    commandPrefix := strings.Split(command, " ")[0]
+    switch commandPrefix {
+        case "": return
+        case "help": printHelp()
+        case "clear": clearScreen()
+        case "select": engine.HandleSelectStatement(command)
+        case "insert": engine.HandleInsertStatement(command)
+        case "exit", "quit": os.Exit(0)
+        default:
+            handleInvalidCmd(command)
+        }
 }
 
 func parseInput(text string) string {
@@ -49,27 +62,12 @@ func parseInput(text string) string {
 }
 
 func InitRepl() {
-    
-    commands := map[string]interface{}{
-        "help":  printHelp,
-        "clear": clearScreen,
-    }
-    
     reader := bufio.NewScanner(os.Stdin)
     printPrompt()
     for reader.Scan() {
-        text := parseInput(reader.Text())
-        if command, exists := commands[strings.Split(text, " ")[0]]; exists {
-            command.(func())()
-        } else if strings.EqualFold("exit", text) {
-			return
-        } else if strings.EqualFold("quit", text) {
-			return
-        } else {
-            handleCmd(text)
-        }
+        command := parseInput(reader.Text())
+        handleCmd(command)
         printPrompt()
     }
     
-	fmt.Println()
 }
