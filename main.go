@@ -1,7 +1,7 @@
 package main
 
 import (
-	"repl"
+	"sqlitego/repl"
 )
 
 func main() {

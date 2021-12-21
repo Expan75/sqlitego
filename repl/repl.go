@@ -2,7 +2,7 @@ package repl
 
 import (
 	"bufio"
-	"engine"
+	"sqlitego/engine"
 	"fmt"
 	"os"
 	"os/exec"
