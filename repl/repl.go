@@ -1,8 +1,8 @@
 package repl
 
 import (
-	"bufio"
 	"sqlitego/engine"
+	"bufio"
 	"fmt"
 	"os"
 	"os/exec"
