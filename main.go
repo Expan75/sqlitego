@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-    repl.InitRepl()
+	repl.InitRepl()
 }
