@@ -24,9 +24,11 @@ func printHelp() {
 		"Welcome to %v! These are the available commands: \n",
 		cliName,
 	)
-	fmt.Println("help           - Show available commands")
-	fmt.Println("clear          - Clear the terminal screen")
-	fmt.Println("exit | quit    - Closes your connection to <dbname>")
+	fmt.Println("\n")
+	fmt.Println("\t help           - Show available commands")
+	fmt.Println("\t clear          - Clear the terminal screen")
+	fmt.Println("\t exit    - Closes your connection to <dbname>")
+	fmt.Println("\n")
 }
 
 func clearScreen() {
